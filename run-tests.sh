@@ -3,13 +3,13 @@
 origin_dir=${pwd}
 skill_dir='/opt/mycroft/skills/skill-to-test'
 output_dir='/home/user/some-dir'
-output_file=test.results.$1.txt
+output_file=test.results.$2.txt
 
 rm $skill_dir/test/intent/*
 # get directory of this script
 test_skill_dir="$( cd "$(dirname "$0")" ; pwd -P )"
 cd $test_skill_dir
-python3 ./create-tests-from-regex.py
+python3 ./create-tests-from-regex.py $skill_dir $1
 
 mycroft-skill-testrunner $skill_dir > $output_dir/$output_file 2>&1
 
