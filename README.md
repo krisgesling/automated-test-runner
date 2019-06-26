@@ -12,6 +12,11 @@ Be sure to make `run-tests.sh` executable by running:
 $ chmod u+x run_tests.sh
 ```
 
+### Intents to test
+Intent tests are defined in `create-tests-from-regex.py`
+Input strings are simple regular expressions.
+Tests must use valid syntax for the [Mycroft Integration Test Runner](https://mycroft.ai/documentation/skills/automatic-testing/)
+
 ## Usage
 `./run_tests.sh` takes two positional arguments. The number of tests and a string to include in the output file name.
 
