@@ -9,7 +9,7 @@ total_number_of_tests = int(sys.argv[2]) if sys.argv[2] else 20
 number_of_tests_per_intent = int(total_number_of_tests / 2)
 offset = [3,5,8,9,12,20]
 location = ['Seattle', 'Paris', 'Sydney', 'Toronto']
-date = "19th of August"
+date = ["19th of August", "July 25th", "8 October", "November 1"]
 output_file = './tests_to_create.csv'
 files_created = []
 
