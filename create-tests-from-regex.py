@@ -13,6 +13,27 @@ files_created = []
 
 intents_to_test = regex_tests.intents
 
+def handlers_one_of(handlers, test_type):
+    """Concatenate handlers into single test string
+
+    Args:
+        handlers (tuple(str)): one or more handler names
+
+    Returns:
+        str: "[['or',['endsWith', 'name', 'handle_increase_volume'], ['endsWith', 'name', 'handle_increase_volume_verb'], ['endsWith', 'name', 'handle_increase_volume_phrase']]]"
+    """
+    if handlers[0] is None:
+        return ""
+    elif len(handlers) < 2:
+        return "[['endsWith', '{}', '{}']]".format(test_type, handlers[0])
+
+    test_string = "[['or'"
+    for h in handler:
+        test_string += (", ['endsWith', '{}', '{}']".format(test_type, h))
+    test_string += "]]"
+    return test_string
+
+
 def test_template(utt, handler):
     return '\n'.join(['{',
                       '    "utterance": "{}",'.format(utt),
